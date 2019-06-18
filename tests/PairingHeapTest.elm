@@ -21,4 +21,11 @@ all =
                     (PairingHeap.insert 1 "one" PairingHeap.empty)
                     |> PairingHeap.findMin
                     |> Expect.equal (Just ( 1, "one" ))
+        , test "merge with non-empty and empty" <|
+            \() ->
+                PairingHeap.merge
+                    (PairingHeap.insert 1 "one" PairingHeap.empty)
+                    PairingHeap.empty
+                    |> PairingHeap.findMin
+                    |> Expect.equal (Just ( 1, "one" ))
         ]

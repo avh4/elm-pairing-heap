@@ -60,17 +60,19 @@ Complexity: O(1)
 -}
 merge : PairingHeap comparable a -> PairingHeap comparable a -> PairingHeap comparable a
 merge heap1 heap2 =
-    -- case ( heap1, heap2 ) of
-    --     ( Empty, _ ) ->
-    --         heap2
-    --     ( _, Empty ) ->
-    --         heap1
-    --     ( Heap k1 v1 hs1, Heap k2 v2 hs2 ) ->
-    --         if k1 < k2 then
-    --             Heap k1 v1 (heap2 :: hs1)
-    --         else
-    --             Heap k2 v2 (heap1 :: hs2)
-    heap2
+    case ( heap1, heap2 ) of
+        ( Empty, _ ) ->
+            heap2
+
+        --     ( _, Empty ) ->
+        --         heap1
+        --     ( Heap k1 v1 hs1, Heap k2 v2 hs2 ) ->
+        --         if k1 < k2 then
+        --             Heap k1 v1 (heap2 :: hs1)
+        --         else
+        --             Heap k2 v2 (heap1 :: hs2)
+        _ ->
+            heap1
 
 
 {-| Inserts a new element into a `PairingHeap`.
