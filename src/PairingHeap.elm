@@ -70,7 +70,7 @@ merge heap1 heap2 =
     --             Heap k1 v1 (heap2 :: hs1)
     --         else
     --             Heap k2 v2 (heap1 :: hs2)
-    Empty
+    heap2
 
 
 {-| Inserts a new element into a `PairingHeap`.
