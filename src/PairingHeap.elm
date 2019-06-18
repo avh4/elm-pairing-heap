@@ -47,12 +47,12 @@ Complexity: O(1)
 -}
 findMin : PairingHeap comparable a -> Maybe ( comparable, a )
 findMin x =
-    -- case x of
-    --     Empty ->
-    --         Nothing
-    --     Heap k v _ ->
-    --         Just ( k, v )
-    Nothing
+    case x of
+        Empty ->
+            Nothing
+
+        Heap k v _ ->
+            Just ( k, v )
 
 
 {-| Merges two `PairingHeap`s together into one new heap containing all of the key-value pairs from both inputs.
@@ -79,7 +79,7 @@ Complexity: O(1)
 insert : comparable -> a -> PairingHeap comparable a -> PairingHeap comparable a
 insert k v heap =
     -- merge (Heap k v []) heap
-    Empty
+    Heap k v []
 
 
 {-| Removes the minimum element from a `PairingHeap` returning a new heap without that element.
