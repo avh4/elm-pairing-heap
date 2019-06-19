@@ -36,6 +36,13 @@ all =
                     |> PairingHeap.deleteMin
                     |> PairingHeap.findMin
                     |> Expect.equal (Just ( 2, "two" ))
+        , test "merge non-empty heaps (second has smallest min value)" <|
+            \() ->
+                PairingHeap.merge
+                    (PairingHeap.insert 2 "two" PairingHeap.empty)
+                    (PairingHeap.insert 1 "one" PairingHeap.empty)
+                    |> PairingHeap.findMin
+                    |> Expect.equal (Just ( 1, "one" ))
         , test "insert two values" <|
             \() ->
                 PairingHeap.empty
