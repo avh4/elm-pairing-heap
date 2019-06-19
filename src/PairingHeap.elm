@@ -80,8 +80,7 @@ Complexity: O(1)
 -}
 insert : comparable -> a -> PairingHeap comparable a -> PairingHeap comparable a
 insert k v heap =
-    -- merge (Heap k v []) heap
-    Heap k v []
+    merge (Heap k v []) heap
 
 
 {-| Removes the minimum element from a `PairingHeap` returning a new heap without that element.

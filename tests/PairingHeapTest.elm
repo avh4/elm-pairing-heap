@@ -36,4 +36,12 @@ all =
                     |> PairingHeap.deleteMin
                     |> PairingHeap.findMin
                     |> Expect.equal (Just ( 2, "two" ))
+        , test "insert two values" <|
+            \() ->
+                PairingHeap.empty
+                    |> PairingHeap.insert 2 "two"
+                    |> PairingHeap.insert 1 "one"
+                    |> PairingHeap.deleteMin
+                    |> PairingHeap.findMin
+                    |> Expect.equal (Just ( 2, "two" ))
         ]
