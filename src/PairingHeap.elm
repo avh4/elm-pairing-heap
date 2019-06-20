@@ -79,7 +79,7 @@ Complexity: O(1)
 insert : comparable -> a -> PairingHeap comparable a -> PairingHeap comparable a
 insert k v heap =
     -- merge (Heap k v []) heap
-    Empty
+    Heap k v []
 
 
 {-| Removes the minimum element from a `PairingHeap` returning a new heap without that element.
@@ -118,9 +118,8 @@ mergePairs heaps =
 Complexity: O(n)
 -}
 fromList : List ( comparable, a ) -> PairingHeap comparable a
-fromList _ =
-    -- List.foldl (\( k, v ) -> insert k v) empty
-    Empty
+fromList =
+    List.foldl (\( k, v ) -> insert k v) empty
 
 
 {-| This function turns a `PairingHeap` into a sorted list of key-value pairs.
@@ -128,9 +127,10 @@ Complexity: O(n log n)
 -}
 toSortedList : PairingHeap comparable a -> List ( comparable, a )
 toSortedList heap =
-    -- case heap of
-    --     Empty ->
-    --         []
-    --     Heap k v _ ->
-    --         ( k, v ) :: toSortedList (deleteMin heap)
-    []
+    case heap of
+        Empty ->
+            []
+
+        Heap k v _ ->
+            -- ( k, v ) :: toSortedList (deleteMin heap)
+            ( k, v ) :: []
