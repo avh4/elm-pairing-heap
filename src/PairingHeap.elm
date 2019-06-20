@@ -72,8 +72,7 @@ merge heap1 heap2 =
                 Heap k1 v1 (heap2 :: [])
 
             else
-                -- Heap k2 v2 (heap1 :: hs2)
-                Heap k2 v2 (heap1 :: [])
+                Heap k2 v2 (heap1 :: hs2)
 
         _ ->
             Empty
@@ -114,7 +113,7 @@ mergePairs heaps =
 
         x :: (y :: xs) ->
             -- merge (merge x y) (mergePairs xs)
-            x
+            merge x y
 
 
 
