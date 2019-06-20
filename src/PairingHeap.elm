@@ -68,8 +68,7 @@ merge heap1 heap2 =
 
         ( Heap k1 v1 hs1, Heap k2 v2 hs2 ) ->
             if k1 < k2 then
-                -- Heap k1 v1 (heap2 :: hs1)
-                Heap k1 v1 (heap2 :: [])
+                Heap k1 v1 (heap2 :: hs1)
 
             else
                 Heap k2 v2 (heap1 :: hs2)
