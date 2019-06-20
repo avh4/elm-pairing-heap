@@ -112,8 +112,7 @@ mergePairs heaps =
             x
 
         x :: (y :: xs) ->
-            -- merge (merge x y) (mergePairs xs)
-            merge x y
+            merge (merge x y) (mergePairs xs)
 
 
 
